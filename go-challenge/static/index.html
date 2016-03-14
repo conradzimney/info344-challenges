@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <title>Suggestion Service</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!-- Local files -->
+    <link rel="icon" href="img/light.png">
+    <link rel="stylesheet" href="./css/index.css">
+    
+</head>
+<body class="container">
+    <header class="page-header">
+        <h1>Suggestion Service, At Your Service...</h1>
+    </header>
+    
+    <section class="row">
+        <div class="col-md-9" id="searchAndSuggestions">
+            <div id="search">
+                <input id="suggInput" onkeyup="getSuggestions(document.getElementById('suggInput').value);" type="text" class="form-control" placeholder="Start typing for suggestions...">
+            </div>
+            <div id="suggestions">
+                <table class="table table-hover" id="suggestionsTable">
+                    <tbody>
+                        <!-- Load Suggestions Here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="max">Maximum Number of Suggestions</label>
+            <select id="max" name="max">
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option selected="selected">20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+            </select>
+        </div>
+        
+    </section>
+</body>
+
+<script type="text/javascript" src="./js/index.js"></script>
+<script>
+    getSource();
+</script>
+
+</html>

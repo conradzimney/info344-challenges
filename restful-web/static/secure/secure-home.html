@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <title>Home Page</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="icon" href="img/home.png">
+    
+</head>
+<body class="container">
+    <header class="page-header row">
+        <div class="col-md-9">
+            <h1 id="header">Rupee Exchange System Home Page</h1>
+        </div>
+        <div class="col-md-2">
+             <p><a href="profile.html" class="btn btn-info" style="bottom: 0;">View Your Profile Here</a></p>
+         </div>
+         <div class="col-md-1">
+             <p><a href="/signout" class="btn btn-danger" style="float: right; bottom: 0;">Sign Out</a></p>
+         </div>
+    </header>
+    <h2>Welcome! What would you like to do?</h2>
+    <div class="row">
+        <h3>Accounts</h3>
+        <table class="table table-hover" id="accountsTable">
+            <thead>
+                <th class="text-left">Account ID</th>
+                <th class="text-left">Account Name</th>
+                <th class="text-right">Balance</th>
+            </thead>
+            <tbody> <!-- Load Account Data here -->
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <h3>Transactions</h3>
+        <table class="table table-hover" id="transTable">
+            <thead>
+                <th class="text-left">Transaction ID</th>
+                <th class="text-left">Source Account ID</th>
+                <th class="text-left">Destination Account ID</th>
+                <th class="text-left">Initiated User</th>
+                <th class="text-left">Destination User</th>
+                <th class="text-left">Description</th>
+                <th class="text-right">Date & Time</th>
+                <th class="text-right">Amount</th>
+            </thead>
+            <tbody> <!-- Load Transaction Data here -->
+            </tbody>
+        </table>  
+        <div>
+            <button type="submit" class="btn btn-info" onclick="loadMoreTrans();" style="float: right;">Load More Transactions</button>
+        </div>
+        </br>         
+    </div>
+    
+    <div class="row" id="forms">
+        <div class="col-md-4">
+            <h4>Create New Account?</h4>
+            <form action="/createAccount" method="post">
+                <div class="form-group">
+                    <label for="accountName">Account Description Name</label>
+                    <input type="text"
+                        name="accountName"
+                        id="accountName"
+                        class="form-control"
+                        placeholder="Debit, Credit, Savings..."
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Create Account</button>
+                </div>
+            </form>
+            </br>
+            <h4>Rename an Account?</h4>
+            <form action="/renameAccount" method="post">
+                <div class="form-group">
+                    <label for="accountToRename">Account to Rename</label>
+                    <input type="text"
+                        name="accountToRename"
+                        id="accountToRename"
+                        class="form-control"
+                        placeholder="Please enter the Account Name or ID..."
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="newName">New Account Name</label>
+                    <input type="text"
+                        name="newName"
+                        id="newName"
+                        class="form-control"
+                        placeholder="Please enter the a new account name..."
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Rename Account</button>
+                </div>
+            </form>
+            </br>
+            <h4>Delete an Account?</h4>
+            <form action="/deleteAccount" method="post">
+                <div class="form-group">
+                    <label for="accountToDelete">Account to Delete</label>
+                    <input type="text"
+                        name="accountToDelete"
+                        id="accountToDelete"
+                        class="form-control"
+                        placeholder="Please enter the Account Name or ID..."
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                </div>
+            </form>
+            </br>
+        </div>
+        <div class="col-md-8">
+            <h4>New Transaction</h4>
+            <form action="/newTransaction" method="post">
+                <div class="form-group">
+                    <label for="sourceAccount">Source Account</label>
+                    <input type="text"
+                        name="sourceAccount"
+                        id="sourceAccount"
+                        class="form-control"
+                        placeholder="Please enter an Account ID or Name..."
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="destinationAccount">Destination Account</label>
+                    <input type="text"
+                        name="destinationAccount"
+                        id="desintationAccount"
+                        class="form-control"
+                        placeholder="Please enter an Account ID, Name, or User Email Address..."
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Transaction Description</label>
+                    <input type="text"
+                        name="desc"
+                        id="desc"
+                        class="form-control"
+                        placeholder="What is the transaction for?"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="text"
+                        name="amount"
+                        id="amount"
+                        class="form-control"
+                        placeholder="How much would you like to send?"
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Submit Transaction</button>
+                    </br></br></br></br>
+                </div>
+            </form>
+        </div>
+        </br></br>
+    </div>
+        
+    <script>
+        loadSecurePage();
+        loadAccounts();
+        loadTransactions();
+    </script>
+</body>
+</html>

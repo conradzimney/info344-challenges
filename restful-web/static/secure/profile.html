@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <title>User Profile</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/profile.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body class="container">
+    <header class="page-header row">
+        <div class="col-md-8">
+            <h1 id="header">firstname's Profile</h1>
+        </div>
+         <div class="col-md-4">
+             <p><a href="/signout" class="btn btn-danger" style="float: right; bottom: 0;">Sign Out</a></p>
+         </div>
+    </header>
+    <div class="row">
+        <div class="col-md-6">
+            <p><a href="secure-home.html" class="btn btn-info">Return to Home Page</a></p>
+            <h2 id="info">Profile Information</h2>
+            </br>
+            <p id="first"><b>First Name:</b> firstname</p>
+            <p id="last"><b>Last Name:</b> lastname</p>
+            <p id="email"><b>Email:</b> email</p>
+        </div>
+        <div class="col-md-6">
+            <img src="img/grav.jpg" alt="User Gravatar" id="gravatar" style="float: right">
+        </div>  
+    </div>
+    <h2>Edit Your Information</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="/changeEmail" method="post">
+                <h4>Change Email?</h4>
+                <div class="form-group">
+                    <label for="new-first">New Email</label>
+                    <input type="text"
+                        name="email"
+                        id="new-email"
+                        class="form-control"
+                        placeholder="New Email"
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Change Email</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <form action="/changeFirstName" method="post">
+                <h4>Change First Name?</h4>
+                <div class="form-group">
+                    <label for="new-first">New First Name</label>
+                    <input type="text"
+                        name="firstname"
+                        id="new-first"
+                        class="form-control"
+                        placeholder="New First Name"
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Change First Name</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <form action="/changeLastName" method="post">
+                <h4>Change Last Name?</h4>
+                <div class="form-group">
+                    <label for="last">New Last Name</label>
+                    <input type="text"
+                        name="lastname"
+                        id="last"
+                        class="form-control"
+                        placeholder="New Last Name"
+                        required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Change Last Name</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Change Password?</h4>
+            <form action="/changePassword" method="post" name="changepassword-form" onsubmit="return validateProfileForm()">
+                <div class="form-group">
+                    <label for="old-password">Old Password</label>
+                    <input type="password"
+                        name="oldpassword"
+                        id="old-password"
+                        class="form-control"
+                        placeholder="Old Password"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password"
+                        name="newpassword"
+                        id="new-password"
+                        class="form-control"
+                        placeholder="New Password"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input type="password"
+                        name="confirmpassword"
+                        id="confirm-password"
+                        class="form-control"
+                        placeholder="Confirm New Password"
+                        onkeyup=" return checkPasswords();"
+                        required>
+                     <span id="confirmMessage" class="confirmMessage"></span>    
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </br>
+    </br>
+    <script>
+        loadProfilePage();
+        loadGravatar();
+    </script>
+</body>
+</html>
